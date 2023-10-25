@@ -28,12 +28,17 @@ namespace SourceCodeStudio.Mobile.ViewModels
         {
             try
             {
+                IsBusy = true;
                 cts = new CancellationTokenSource();
                 Address = await locationService.GetLocation(cts);
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

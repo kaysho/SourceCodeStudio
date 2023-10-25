@@ -9,7 +9,9 @@
     ios:Page.UseSafeArea="True"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:DataType="vm:WelcomeViewModel"
-    BackgroundColor="#170e29">
+    BackgroundColor="#170e29"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout
             Margin="20"
@@ -21,16 +23,17 @@
                 HorizontalOptions="Start"
                 Source="sourcecodestudio.png" />
             <Label
-                FontSize="Header"
+                FontAttributes="Bold"
+                FontSize="Title"
                 HorizontalOptions="Start"
                 Text="Hi User"
                 TextColor="White" />
             <Label
-                FontSize="Subtitle"
+                FontAttributes="Bold"
+                FontSize="Body"
                 HorizontalOptions="Start"
                 Text="Welcome to Source Code Studio"
                 TextColor="White" />
-
 
             <Label
                 FontSize="Medium"
@@ -38,9 +41,13 @@
                 Text="You are currently at"
                 TextColor="White" />
 
+            <ActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Color="White" />
 
             <Label
-                FontSize="Medium"
+                FontSize="Small"
                 HorizontalOptions="Start"
                 Text="{Binding Address}"
                 TextColor="White" />
@@ -50,10 +57,12 @@
                 BorderColor="White"
                 BorderWidth="2"
                 Command="{Binding NavigateToNextPageCommand}"
-                CornerRadius="25"
+                CornerRadius="{OnPlatform Android=25,
+                                          iOS=22}"
                 HorizontalOptions="CenterAndExpand"
                 Text="Next"
-                VerticalOptions="EndAndExpand" />
+                VerticalOptions="EndAndExpand"
+                WidthRequest="{OnPlatform iOS=120}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

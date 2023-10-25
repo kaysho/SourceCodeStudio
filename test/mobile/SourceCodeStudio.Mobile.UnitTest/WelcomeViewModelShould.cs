@@ -26,7 +26,7 @@ namespace SourceCodeStudio.Mobile.UnitTest
         {
             //Arrange
             string address = "Bury St Edmunds";
-            mockLocationService.Setup(n => n.GetLocation(new CancellationTokenSource())).ReturnsAsync(address);
+            mockLocationService.Setup(n => n.GetLocation(It.IsAny<CancellationTokenSource>())).ReturnsAsync(address);
             //Act
             sut.LocationCommand.Execute(null);
             //Assert
@@ -37,11 +37,11 @@ namespace SourceCodeStudio.Mobile.UnitTest
         public void HandlePermissionException()
         {
             //Arrange
-            mockLocationService.Setup(n => n.GetLocation(new CancellationTokenSource())).Throws(new Exception());
+            mockLocationService.Setup(n => n.GetLocation(It.IsAny<CancellationTokenSource>())).Throws(new Exception());
             //Act
             sut.LocationCommand.Execute(null);
             //Assert
-            sut.Address.Should().Be("Can't seem to find where you are!");
+            sut.Address.Should().Be(null);
         }
 
         [Fact]

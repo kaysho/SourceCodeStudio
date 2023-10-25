@@ -19,29 +19,39 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <ImageButton
-                Grid.Row="0"
-                Command="{Binding CloseCommand}"
-                HorizontalOptions="Start"
-                Source="close.png"
-                VerticalOptions="Start" />
 
             <!--  First row: Image  -->
             <Image
-                Grid.Row="1"
+                Grid.Row="0"
+                Grid.RowSpan="3"
                 Aspect="AspectFill"
                 Source="{Binding ImageUrl}" />
 
+            <ImageButton
+                Grid.Row="0"
+                Margin="20"
+                BackgroundColor="Transparent"
+                Command="{Binding CloseCommand}"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="close.png"
+                VerticalOptions="Start"
+                WidthRequest="30" />
+
             <Button
                 Grid.Row="2"
-                BorderColor="#170e29"
+                Margin="0,0,0,20"
+                BackgroundColor="Transparent"
+                BorderColor="White"
                 BorderWidth="2"
                 Command="{Binding FetchImageCommand}"
-                CornerRadius="25"
+                CornerRadius="{OnPlatform Android=25,
+                                          iOS=22}"
                 HorizontalOptions="Center"
                 Text="Next Image"
                 TextColor="White"
-                VerticalOptions="End" />
+                VerticalOptions="End"
+                WidthRequest="{OnPlatform iOS=120}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

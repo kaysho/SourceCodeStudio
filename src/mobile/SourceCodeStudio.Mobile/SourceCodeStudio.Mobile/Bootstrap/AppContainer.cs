@@ -1,6 +1,4 @@
-﻿// Ignore Spelling: app
-
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Refit;
 using SourceCodeStudio.Mobile.Models;
 using SourceCodeStudio.Mobile.Services;
@@ -16,7 +14,7 @@ namespace SourceCodeStudio.Mobile.Bootstrap
     public static class AppContainer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="containerRegistry"></param>
         public static void RegisterDependencies(this IContainerRegistry containerRegistry)
@@ -29,6 +27,7 @@ namespace SourceCodeStudio.Mobile.Bootstrap
             containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
             containerRegistry.RegisterForNavigation<NewItemPage, NewItemViewModel>();
             containerRegistry.RegisterForNavigation<DogImagePage, DogImageViewModel>();
+            containerRegistry.RegisterForNavigation<WelcomePage, WelcomeViewModel>();
 
             containerRegistry.RegisterSingleton<INavigationService, ShellNavigationService>();
             containerRegistry.RegisterSingleton<ILocationService, LocationService>();
@@ -36,7 +35,7 @@ namespace SourceCodeStudio.Mobile.Bootstrap
             containerRegistry.RegisterInstance(RestService.For<IRandomDogImageService>("https://dog.ceo/"));
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="app"></param>
         public static void SetUpApp(this Application app)
@@ -48,7 +47,7 @@ namespace SourceCodeStudio.Mobile.Bootstrap
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static void RegisterPages()
         {
