@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SourceCodeStudio.Mobile.Views.WelcomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:vm="clr-namespace:SourceCodeStudio.Mobile.ViewModels"
+    ios:Page.UseSafeArea="True"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="vm:WelcomeViewModel"
+    BackgroundColor="#170e29">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="20"
+            BackgroundColor="#170e29"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Image
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                Source="sourcecodestudio.png" />
+            <Label
+                FontSize="Header"
+                HorizontalOptions="Start"
+                Text="Hi User"
+                TextColor="White" />
+            <Label
+                FontSize="Subtitle"
+                HorizontalOptions="Start"
+                Text="Welcome to Source Code Studio"
+                TextColor="White" />
+
+
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="Start"
+                Text="You are currently at"
+                TextColor="White" />
+
+
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="Start"
+                Text="{Binding Address}"
+                TextColor="White" />
+
+            <Button
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="2"
+                Command="{Binding NavigateToNextPageCommand}"
+                CornerRadius="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="Next"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

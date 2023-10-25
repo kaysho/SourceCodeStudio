@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SourceCodeStudio.Mobile.Views.DogImagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:vm="clr-namespace:SourceCodeStudio.Mobile.ViewModels"
+    ios:Page.UseSafeArea="True"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="vm:DogImageViewModel"
+    BackgroundColor="#170e29"
+    NavigationPage.HasNavigationBar="False"
+    Shell.PresentationMode="ModalAnimated">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ImageButton
+                Grid.Row="0"
+                Command="{Binding CloseCommand}"
+                HorizontalOptions="Start"
+                Source="close.png"
+                VerticalOptions="Start" />
+
+            <!--  First row: Image  -->
+            <Image
+                Grid.Row="1"
+                Aspect="AspectFill"
+                Source="{Binding ImageUrl}" />
+
+            <Button
+                Grid.Row="2"
+                BorderColor="#170e29"
+                BorderWidth="2"
+                Command="{Binding FetchImageCommand}"
+                CornerRadius="25"
+                HorizontalOptions="Center"
+                Text="Next Image"
+                TextColor="White"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
