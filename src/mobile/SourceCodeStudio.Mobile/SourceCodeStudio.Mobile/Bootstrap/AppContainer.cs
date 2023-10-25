@@ -14,18 +14,12 @@ namespace SourceCodeStudio.Mobile.Bootstrap
     public static class AppContainer
     {
         /// <summary>
-        ///
+        /// Handle dependency injection
         /// </summary>
         /// <param name="containerRegistry"></param>
         public static void RegisterDependencies(this IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-
-            containerRegistry.RegisterForNavigation<AboutPage, AboutViewModel>();
-            containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailViewModel>();
-            containerRegistry.RegisterForNavigation<ItemsPage, ItemsViewModel>();
-            containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
-            containerRegistry.RegisterForNavigation<NewItemPage, NewItemViewModel>();
             containerRegistry.RegisterForNavigation<DogImagePage, DogImageViewModel>();
             containerRegistry.RegisterForNavigation<WelcomePage, WelcomeViewModel>();
 
@@ -35,7 +29,7 @@ namespace SourceCodeStudio.Mobile.Bootstrap
             containerRegistry.RegisterInstance(RestService.For<IRandomDogImageService>("https://dog.ceo/"));
         }
         /// <summary>
-        ///
+        /// Setup application configuration
         /// </summary>
         /// <param name="app"></param>
         public static void SetUpApp(this Application app)
@@ -47,15 +41,11 @@ namespace SourceCodeStudio.Mobile.Bootstrap
         }
 
         /// <summary>
-        ///
+        /// Register pages for routing.
         /// </summary>
         public static void RegisterPages()
         {
-            Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(ItemsPage), typeof(ItemsPage));
-            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(WelcomePage), typeof(WelcomePage));
             Routing.RegisterRoute(nameof(DogImagePage), typeof(DogImagePage));
         }
     }

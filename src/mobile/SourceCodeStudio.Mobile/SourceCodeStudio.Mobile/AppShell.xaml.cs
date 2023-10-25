@@ -2,7 +2,6 @@
 
 using SourceCodeStudio.Mobile.Bootstrap;
 using System;
-using Xamarin.Forms;
 
 namespace SourceCodeStudio.Mobile
 {
@@ -20,7 +19,7 @@ namespace SourceCodeStudio.Mobile
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            await Current.GoToAsync("//LoginPage");
         }
     }
 }
