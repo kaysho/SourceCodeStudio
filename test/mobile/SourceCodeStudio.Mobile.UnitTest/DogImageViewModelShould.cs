@@ -30,6 +30,7 @@ namespace SourceCodeStudio.Mobile.UnitTest
             //Assert
             sut.ImageUrl.Should().Be(dogImageResponse.Message);
         }
+
         [Fact]
         public void NavigateToPreviousPageSuccessfully()
         {
